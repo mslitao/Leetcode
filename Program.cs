@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Tao
+namespace Leetcode
 {
         /**
     * Definition for a binary tree node.*/
