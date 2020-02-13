@@ -188,6 +188,9 @@ Precision is also known as the positive predictive value, and it is a measure of
 
 Regularisation is a process of introducing additional information in order to prevent overfitting. The focus for this article is L1 and L2 regularisation.
 
+Regularization helps to solve over fitting problem in machine learning. Simple model will be a very poor generalization of data.At the same time, complex model may not perform well in test data due to over fitting. We need to choose the right model in between simple and complex model. 
+
+Regularization helps to choose preferred model complexity, so that model is better at predicting. Regularization is nothing but adding a **penalty term** to the objective function and **control the model complexity** using that penalty term. It can be used for many machine learning algorithms. I have attempted to explain the regularization using the ridge and lasso regression.
 
 
 ## Q7 - L1 and L2 error
@@ -228,3 +231,51 @@ You can also think of L1 as reducing the number of features in the model altoget
 
 Please read more details here:
 https://towardsdatascience.com/intuitions-on-l1-and-l2-regularisation-235f2db4c261
+
+
+https://www.quora.com/What-is-the-difference-between-L1-and-L2-regularization-How-does-it-solve-the-problem-of-overfitting-Which-regularizer-to-use-and-when
+
+
+The main difference between L1 and L2 regularization is that L1 can yield sparse models while L2 doesn't. Sparse model is a great property to have when dealing with high-dimensional data, for at least 2 reasons.
+
+Model compression: increasingly important due to the mobile growth
+
+Feature selection: it helps to know which features are important and which features are not or redundant.
+
+## Q9 - Model of Lasso 
+
+The Lasso regression uses L1 norm for regularization. The main difference between ridge and lasso regression is a shape of the constraint region. Ridge regression use L2 norm.Lasso uses L1norm for a constraint. For P = 2 case, the shape of the constraint region is diamond. The Lasso estimate is an estimate which minimizes the sum of square as well as satisfy the below constraint.
+
+Use L1 regularization, works better on feature selection.
+
+The main advantage of using Lasso regression for feature selection over other subset selection method (Forward.other method regression) is that it uses convex optimisation to find out the best features. So, it converges faster compared to backward
+
+
+## Q10 - Model of ridge
+Use L2 regulariation
+
+How ridge regression solves over fitting problem?
+
+The ridge regression has two important advantages over the linear regression. 
+
+The most important one is that it penalizes the estimates. It doesn't penalize all the feature’s estimate arbitrarily. If estimates (β) value are very large, then the SSE term in the above equation will minimize, but the penalty term will increases. If estimates(β)values are small, then the penalty term in the above equation will minimize, but, the SSE term will increase due to poor generalization. So, it chooses the feature's estimates (β) to penalize in such a way that less influential features (Some features cause very small influence on dependent variable) undergo more penalization.
+
+In some domains, the number of independent variables is many, as well as we are not sure which of the independent variables influences dependent variable. In this kind of scenario, ridge regression plays a better role than linear regression.
+
+
+## Q11 - Elastic Net
+
+However, I would like to add one more Regularization method of **Elastic Net** which is a combination of the two. It combines both the penalties of L1 and L2.
+
+## Q12- What’s the difference between Type I and Type II error?
+More reading: Type I and type II errors (Wikipedia)
+
+Don’t think that this is a trick question! Many machine learning interview questions will be an attempt to lob basic questions at you just to make sure you’re on top of your game and you’ve prepared all of your bases.
+
+Type I error is a false positive, while Type II error is a false negative. Briefly stated, Type I error means claiming something has happened when it hasn’t, while Type II error means that you claim nothing is happening when in fact something is.
+
+A clever way to think about this is to think of Type I error as telling a man he is pregnant, while Type II error means you tell a pregnant woman she isn’t carrying a baby.
+
+
+
+
