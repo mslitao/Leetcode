@@ -155,6 +155,8 @@ K-means clustering requires only a set of unlabeled points and a threshold: the 
 
 The critical difference here is that KNN needs labeled points and is thus supervised learning, while k-means doesn’t — and is thus unsupervised learning.
 
+
+
 ## Q5 - Explain how a ROC curve works.
 
 More reading: Receiver operating characteristic (Wikipedia)
@@ -348,4 +350,94 @@ More reading: Regression vs Classification (Math StackExchange)
 Classification produces discrete values and dataset to strict categories, while regression gives you continuous results that allow you to better distinguish differences between individual points. 
 
 You would use classification over regression if you wanted your results to reflect the belongingness of data points in your dataset to certain explicit categories (ex: If you wanted to know whether a name was male or female rather than just how correlated they were with male and female names.)
+
+## Q17- What’s the F1 score? How would you use it?
+More reading: F1 score (Wikipedia)
+
+The F1 score is a measure of a model’s performance. It is a weighted average of the precision and recall of a model, with results tending to 1 being the best, and those tending to 0 being the worst. You would use it in classification tests where true negatives don’t matter much.
+
+## Q18- Which is more important to you– model accuracy, or model performance?
+More reading: Accuracy paradox (Wikipedia)
+
+This question tests your grasp of the nuances of machine learning model performance! Machine learning interview questions often look towards the details. There are models with higher accuracy that can perform worse in predictive power — how does that make sense?
+
+Well, it has everything to do with how model accuracy is only a subset of model performance, and at that, a sometimes misleading one. For example, if you wanted to detect fraud in a massive dataset with a sample of millions, a more accurate model would most likely predict no fraud at all if only a vast minority of cases were fraud. However, this would be useless for a predictive model — a model designed to find fraud that asserted there was no fraud at all! Questions like this help you demonstrate that you understand model accuracy isn’t the be-all and end-all of model performance.
+
+## Q19- How is a decision tree pruned?
+More reading: Pruning (decision trees)
+
+Pruning is what happens in decision trees when branches that have weak predictive power are removed in order to reduce the complexity of the model and increase the predictive accuracy of a decision tree model. 
+
+Pruning can happen bottom-up and top-down, with approaches such as reduced error pruning and cost complexity pruning.
+
+Reduced error pruning is perhaps the simplest version: replace each node. If it doesn’t decrease predictive accuracy, keep it pruned. While simple, this heuristic actually comes pretty close to an approach that would optimize for maximum accuracy.
+
+## Q20- What’s the difference between a generative and discriminative model?
+More reading: What is the difference between a Generative and Discriminative Algorithm? (Stack Overflow)
+
+* A generative model will learn categories of data 
+* A discriminative model will simply learn the **distinction** or the boundary between different categories of data. 
+
+Discriminative models will generally outperform generative models on classification tasks.
+
+## Q21- What evaluation approaches would you work to gauge the effectiveness of a machine learning model?
+More reading: How to Evaluate Machine Learning Algorithms (Machine Learning Mastery)
+
+You would first split the dataset into training and test sets, or perhaps use cross-validation techniques to further segment the dataset into composite sets of training and test sets within the data. 
+
+You should then implement a choice selection of performance metrics: here is a fairly comprehensive list. Y
+
+You could use measures such as the F1 score, the accuracy, and the confusion matrix. 
+
+What’s important here is to demonstrate that you understand the nuances of how a model is measured and how to choose the right performance measures for the right situations.
+
+## Q22- How would you evaluate a logistic regression model?
+More reading: Evaluating a logistic regression (CrossValidated)
+
+A subsection of the question above. You have to demonstrate an understanding of what the typical goals of a logistic regression are (classification, prediction etc.) and bring up a few examples and use cases.
+
+
+
+## Q23. How is KNN different from k-means clustering?
+### K-Nearest Neighbors (K-NN)
+
+k-NN is a supervised algorithm used for classification. What this means is that we have some labeled data upfront which we provide to the model for it to understand the dynamics within that data i.e. train. It then uses those learnings to make inferences on the unseen data i.e. test. In the case of classification this labeled data is discrete in nature.
+
+* Decide on your similarity or distance metric.
+* Split the original labeled dataset into training and test data.
+* Pick an evaluation metric.
+* Decide upon the value of k. Here k refers to the number of closest neighbors we will consider while doing the majority voting of target labels.
+* Run k-NN a few times, changing k and checking the evaluation measure.
+* In each iteration, k neighbors vote, majority vote wins and becomes the ultimate prediction
+* Optimize k by picking the one with the best evaluation measure.
+* Once you’ve chosen k, use the same training set and now create a new test set with the people’s ages and incomes that you have no labels for, and want to predict.
+
+### k-Means
+k-Means is an unsupervised algorithm used for clustering. By unsupervised we mean that we don’t have any labeled data upfront to train the model. Hence the algorithm just relies on the dynamics of the independent features to make inferences on unseen data.
+* Initially, randomly pick k centroids/cluster centers. Try to make them near the data but different from one another.
+* Then assign each data point to the closest centroid.
+* Move the centroids to the average location of the data points assigned to it.
+
+Repeat the preceding two steps until the assignments don’t change, or change very little.
+
+## Q24. When is Ridge regression favorable over Lasso regression?
+
+### Ridge:
+Ridge: It is majorly used to prevent over fitting. Since it includes all the features, it is not very useful in case of exorbitantly high features, say in millions, as it will pose computational challenges.
+### Lasso
+Lasso: Since it provides sparse solutions, it is generally the model of choice (or some variant of this concept) for modelling cases where the features are in millions or more. In such a case, getting a sparse solution is of great computational advantage as the features with zero coefficients can simply be ignored.
+
+Conceptually, we can say, lasso regression (L1) does both variable selection and parameter shrinkage, whereas Ridge regression only does parameter shrinkage and end up including all the coefficients in the model. In presence of correlated variables, ridge regression might be the preferred choice. Also, ridge regression works best in situations where the least square estimates have higher variance. Therefore, it depends on our model objective.
+
+Collinear predictors, small numbers of predictors, and data with subgroups are all good candidates for Ridge regression. 
+* LASSO focuses more on creating a sparse model. 
+* Ridge creates a robust model.
+
+## Q25. What’s the difference between a generative and discriminative model?
+In General, 
+	• A Discriminative model models the decision boundary between the classes.
+	• A Generative Model explicitly models the actual distribution of each class. 
+In final both of them is predicting the conditional probability P(Animal | Features). But Both models learn different probabilities.
+
+![generative-vs-discriminative](../img/generative-vs-discriminative.png "generative-vs-discriminative")
 
