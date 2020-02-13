@@ -54,9 +54,11 @@ The target function is estimated from the training data by a machine learning al
 
 Machine learning algorithms that have a high variance are strongly influenced by the specifics of the training data. This means that the specifics of the training have influences the number and types of parameters used to characterize the mapping function.
 
-    • Low Variance: Suggests small changes to the estimate of the target function with changes to the training dataset.
+    • Low Variance:
+    Suggests small changes to the estimate of the target function with changes to the training dataset.
 
-    • High Variance: Suggests large changes to the estimate of the target function with changes to the training dataset.
+    • High Variance: 
+    Suggests large changes to the estimate of the target function with changes to the training dataset.
 
 Generally, **nonlinear machine learning algorithms that have a lot of flexibility have a high variance**. For example, decision trees have a high variance, that is even higher if the trees are not pruned before use.
 
@@ -118,4 +120,84 @@ Suppose that we are designing a machine learning model. How a model is said to b
         * For example, prune a decision tree, dropout 
 	    * Add a penalty parameter to the cost function in regression
 
-### Q2 - Overfitting and Underfitting
+## Q3- What is the difference between supervised and unsupervised machine learning?
+More reading: What is the difference between supervised and unsupervised machine learning? (Quora)
+
+![supervised-vs-unsupervised](../img/supervised-vs-unsupervised.jpg "Supervised vs Unsupervised")
+
+
+
+### Supervised Learning
+Supervised learning requires training labeled data. For example, in order to do classification (a supervised learning task), you’ll need to first label the data you’ll use to train the model to classify data into your labeled groups. 
+
+### Unsupervised Learning
+Unsupervised learning, in contrast, does not require labeling data explicitly.
+
+
+
+## Q4 - How is KNN different from k-means clustering?
+
+More reading: How is the k-nearest neighbor algorithm different from k-means clustering? (Quora)
+
+1. Different on K
+
+    * KNN: K is neighbors count
+    * K-means: K is the cluster count 
+
+2. supervised classification vs unsupervised clustering
+    
+    * K-Nearest Neighbors is a supervised classification algorithm
+    * k-means clustering is an unsupervised clustering algorithm. 
+
+While the mechanisms may seem similar at first, what this really means is that in order for K-Nearest Neighbors to work, you need labeled data you want to classify an unlabeled point into (thus the nearest neighbor part). 
+
+K-means clustering requires only a set of unlabeled points and a threshold: the algorithm will take unlabeled points and gradually learn how to cluster them into groups by computing the mean of the distance between different points.
+
+The critical difference here is that KNN needs labeled points and is thus supervised learning, while k-means doesn’t — and is thus unsupervised learning.
+
+## Q5 - Explain how a ROC curve works.
+
+More reading: Receiver operating characteristic (Wikipedia)
+
+The ROC curve is a graphical representation of the contrast between **true positive rates** and the **false positive rate** at various thresholds.
+
+
+It’s often used as a proxy for the trade-off between the sensitivity of the model (true positives) vs the fall-out or the probability it will trigger a false alarm (false positives).
+
+![roc-curve](../img/roc-curve.png "ROC curve")
+
+## Q6 - Define precision and recall.
+
+More reading: Precision and recall (Wikipedia)
+
+### Recall
+
+**true positive rate**
+
+Recall is also known as the **true positive rate**: the amount of positives your model claims compared to the actual number of positives there are throughout the data. 
+
+### Precision
+
+**accurate positives**
+
+Precision is also known as the positive predictive value, and it is a measure of the amount of accurate positives your model claims compared to the number of positives it actually claims.
+
+![precision-vs-recall](../img/precision-vs-recall.png "Precision VS Recall")
+
+## Q7 - regularization
+
+## Q7 - L1 and L2 error
+
+L1-norm loss function is also known as least absolute deviations (LAD), least absolute errors (LAE). It is basically minimizing the sum of the absolute differences (S) between the target value (Yi) and the estimated values (f(xi)):
+
+$$ \mu /alpha$$
+\begin{align*}
+  & S = \sum_{i=0}^n|y_i - h(x_i)|
+\end{align*}
+
+$$x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
+
+
+
+
+## Q8- Explain the difference between L1 and L2 regularization.

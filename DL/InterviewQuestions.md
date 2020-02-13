@@ -9,7 +9,7 @@
 
 ## Q2: Differene between machine learning and deep learning
 
-![Kitten](../img/ml-vs-dl.png "How does deep learning differ from Machine learning")
+![ss](../img/ml-vs-dl.png "How does deep learning differ from Machine learning")
 
 1.  Data dependencies
 
