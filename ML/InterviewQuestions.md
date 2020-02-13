@@ -15,11 +15,67 @@ The bias-variance decomposition essentially decomposes the learning error from
 
 More reading:  [Bias-Variance Tradeoff (Wikipedia)](https://en.wikipedia.org/wiki/Bias–variance_tradeoff)
 
+Keywords: *simplifying assumptions*, *complexity*
+
+### Bias Error
+
+
+Bias are the **simplifying assumptions** made by a model to make the target function easier to learn.
+Generally, linear algorithms have a high bias making them fast to learn and easier to understand but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias.
+
+    • Low Bias: Suggests less assumptions about the form of the target function.
+
+    • High-Bias: Suggests more assumptions about the form of the target function.
+
+Examples of low-bias machine learning algorithms include:
+
+    Decision Trees,
+    KNN - k-Nearest Neighbors 
+    SVM - Support Vector Machines.
+
+Examples of high-bias machine learning algorithms include:
+
+    Linear Regression
+    Linear Discriminant Analysis
+    Logistic Regression.
+ 
+Bias = Assumptions made by a model to make the target function or learn the model
+
+So, simple model usually has a lot of assumptions then the bias will also be higher as well. For example, linear regression, logistic regression. These model is not easy to overfit
+Overfit is mostly happened for the Low Bias and high variance 
+
+For the complex model, it doesn't need so complicated assumptions to learn the model. So, it should be low bias. But this will tend to be high variance, the  easier to be overfitted. 
+
+### Variance Error
+
+Variance is the amount that the estimate of the target function will change if different training data was used.
+
+The target function is estimated from the training data by a machine learning algorithm, so we should expect the algorithm to have some variance. Ideally, it should not change too much from one training dataset to the next, meaning that the algorithm is good at picking out the hidden underlying mapping between the inputs and the output variables.
+
+Machine learning algorithms that have a high variance are strongly influenced by the specifics of the training data. This means that the specifics of the training have influences the number and types of parameters used to characterize the mapping function.
+
+    • Low Variance: Suggests small changes to the estimate of the target function with changes to the training dataset.
+
+    • High Variance: Suggests large changes to the estimate of the target function with changes to the training dataset.
+
+Generally, **nonlinear machine learning algorithms that have a lot of flexibility have a high variance**. For example, decision trees have a high variance, that is even higher if the trees are not pruned before use.
+
+Examples of low-variance machine learning algorithms include: 
+
+    Linear Regression
+    Linear Discriminant Analysis
+    Logistic Regression.
+Examples of high-variance machine learning algorithms include: 
+    Decision Trees,
+    k-Nearest Neighbors
+    Support Vector Machines.
+
+
 ### Q2 - Overfitting and Underfitting
 
 In Machine learning, generalization usually refers to the ability of an algorithm to be effective across a range of inputs and applications.
 
-    Suppose that we are designing a machine learning model. How a model is said to be a good machine learning model? By Checking if it generalizes any new input data from the problem domain in a proper way. This helps us to make predictions in the future data, the data model has never seen.
+Suppose that we are designing a machine learning model. How a model is said to be a good machine learning model? By Checking if it generalizes any new input data from the problem domain in a proper way. This helps us to make predictions in the future data, the data model has never seen.
 
 * A model is good if it neither underfit or overfits 
 
@@ -41,7 +97,7 @@ In Machine learning, generalization usually refers to the ability of an algorith
 
 2. Overfitting
 
-    Overfitting occurs when a statistical model or machine learning algorithm captures the noise of the data. Intuitively, overfitting occurs when the model or the algorithm fits the data too well. 
+    Overfitting occurs when a statistical model or machine learning algorithm captures **the noise of the data**. Intuitively, overfitting occurs when the model or the algorithm **fits the data too well**. 
 
     **The model is Low bias but high variance**
 
@@ -62,3 +118,4 @@ In Machine learning, generalization usually refers to the ability of an algorith
         * For example, prune a decision tree, dropout 
 	    * Add a penalty parameter to the cost function in regression
 
+### Q2 - Overfitting and Underfitting
