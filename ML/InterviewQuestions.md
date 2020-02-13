@@ -222,7 +222,7 @@ Whenever in doubt, prefer L2 loss function, it works pretty well in most of the 
 ## Q8- Explain the difference between L1 and L2 regularization.
 
 
-![l1-l2](../img/loss-function-l1-l2.png "L1 regularisation vs L2 regularisation")
+![l1-l2](../img/loss-function-l1-l2.PNG "L1 regularisation vs L2 regularisation")
 
 You can also think of L1 as reducing the number of features in the model altogether
 
