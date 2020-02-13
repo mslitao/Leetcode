@@ -276,6 +276,45 @@ Type I error is a false positive, while Type II error is a false negative. Brief
 
 A clever way to think about this is to think of Type I error as telling a man he is pregnant, while Type II error means you tell a pregnant woman she isn’t carrying a baby.
 
+## Q13 - What cross-validation technique would you use on a time series dataset?
+
+Instead of using standard k-folds cross-validation, you have to pay attention to the fact that a time series is not randomly distributed data — it is inherently ordered by chronological order. If a pattern emerges in later time periods for example, your model may still pick up on it even if that effect doesn’t hold in earlier years!
+
+You’ll want to do something like forward chaining where you’ll be able to model on past data then look at forward-facing data.
+
+You need some kind of assurance that your model has got most of the patterns from the data correct, and its not picking up too much on the noise, or in other words its low on bias and variance.
+
+Generally, an error estimation for the model is made after training, better known as evaluation of residuals. In this process, a numerical estimate of the difference in predicted and original responses is done, also called the training error. However, this only gives us an idea about how well our model does on data used to train it. 
+
+So, the problem with this evaluation technique is that it does not give an indication of how well the learner will generalize to an independent/ unseen data set. Getting this idea about our model is known as Cross Validation.
+
+This can help the following scenarios:
+1. Use All Your Data
+2. Get More Metrics
+3. Use Models Stacking
+4.  Work with Dependent/Grouped Data
+
+	a. Speech: User
+
+	b. Oscar: Year/ type
+5. Parameters Fine-Tuning
 
 
+There are some strategizes 
+* K-fold validation
+    * Split the data into k subsets or folds 
+    * for every i = 1, 2, 3, ... k
+        * Train the model on all the folds except the ith.
+        * Compute the test error on the ith fold.
+    * Average the test error
+        
+* Leave 1 or K out validation
+    * for every i = 1, 2, 3, ... n
+        * Train the model on all the data except the ith.
+        * Compute the test error on the ith single value.
+    * Average the test error 
 
+* Validation set
+
+    *. Split the data into two parts
+    *. Train the model the first part, and test or validate on second part.
