@@ -184,20 +184,47 @@ Precision is also known as the positive predictive value, and it is a measure of
 
 ![precision-vs-recall](../img/precision-vs-recall.png "Precision VS Recall")
 
-## Q7 - regularization
+## Q7 - Regularisation
+
+Regularisation is a process of introducing additional information in order to prevent overfitting. The focus for this article is L1 and L2 regularisation.
+
+
 
 ## Q7 - L1 and L2 error
 
 L1-norm loss function is also known as least absolute deviations (LAD), least absolute errors (LAE). It is basically minimizing the sum of the absolute differences (S) between the target value (Yi) and the estimated values (f(xi)):
 
-$$ \mu /alpha$$
-\begin{align*}
-  & S = \sum_{i=0}^n|y_i - h(x_i)|
-\end{align*}
+$$ S = \sum_{i=0}^n|y_i - h(x_i)|$$
 
-$$x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
+L2-norm loss function is also known as least squares error (LSE). It is basically minimizing the sum of the square of the differences (S) between the target value (Yi) and the estimated values (f(xi):
+
+$$ S = \sum_{i=0}^n(y_i - h(x_i))^2 $$
+
+Intuitively speaking, since a L2-norm squares the error (increasing by a lot if error > 1), the model will see a much larger error ( e vs e^2 ) than the L1-norm, so the model is much more sensitive to this example, and adjusts the model to minimize this error. If this example is an outlier, the model will be adjusted to minimize this single outlier case, at the expense of many other common examples, since the errors of these common examples are small compared to that single outlier case.
+
+**L1 loss function is more robust**
+
+As a result, L1 loss function is more robust and is generally not affected by outliers. On the contrary L2 loss function will try to adjust the model according to these outlier values, even on the expense of other samples. Hence, L2 loss function is highly sensitive to outliers in the dataset.
 
 
+More details here: http://rishy.github.io/ml/2015/07/28/l1-vs-l2-loss/ 
 
+With outliers in the dataset, a L2(Loss function) tries to adjust the model according to these outliers on the expense of other good-samples, since the squared-error is going to be huge for these outliers(for error > 1). 
+
+On the other hand L1(Least absolute deviation) is quite resistant to outliers.
+
+As a result, L2 loss function may result in huge deviations in some of the samples which results in reduced accuracy.
+
+So, if you can ignore the ouliers in your dataset or you need them to be there, then you should be using a L1 loss function, on the other hand if you don’t want undesired outliers in the dataset and would like to use a stable solution then first of all you should try to remove the outliers and then use a L2 loss function. Or performance of a model with a L2 loss function may deteriorate badly due to the presence of outliers in the dataset.
+
+Whenever in doubt, prefer L2 loss function, it works pretty well in most of the situations.
 
 ## Q8- Explain the difference between L1 and L2 regularization.
+
+
+![l1-l2](../img/loss-function-l1-l2.png "L1 regularisation vs L2 regularisation")
+
+You can also think of L1 as reducing the number of features in the model altogether
+
+Please read more details here:
+https://towardsdatascience.com/intuitions-on-l1-and-l2-regularisation-235f2db4c261
