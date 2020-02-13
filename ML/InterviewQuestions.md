@@ -318,3 +318,34 @@ There are some strategizes
 
     *. Split the data into two parts
     *. Train the model the first part, and test or validate on second part.
+
+## Q14- How do you ensure you’re not overfitting with a model?
+More reading: How can I avoid overfitting? (Quora)
+
+This is a simple restatement of a fundamental problem in machine learning: the possibility of overfitting training data and carrying the noise of that data through to the test set, thereby providing inaccurate generalizations.
+There are three main methods to avoid overfitting:
+
+1. Keep the model simpler: reduce variance by taking into account fewer variables and parameters, thereby removing some of the noise in the training data.
+2. Use cross-validation techniques such as k-folds cross-validation.
+3. Use regularization techniques such as LASSO that penalize certain model parameters if they’re likely to cause overfitting.
+
+## Q15- How would you handle an imbalanced dataset?
+
+More reading: 8 Tactics to Combat Imbalanced Classes in Your Machine Learning Dataset (Machine Learning Mastery)
+
+An imbalanced dataset is when you have, for example, a classification test and 90% of the data is in one class. That leads to problems: an accuracy of 90% can be skewed if you have no predictive power on the other category of data! Here are a few tactics to get over the hump:
+
+1. Collect more data to even the imbalances in the dataset.
+2. Resample the dataset to correct for imbalances.
+3. Try a different algorithm altogether on your dataset.
+
+What’s important here is that you have a keen sense for what damage an unbalanced dataset can cause, and how to balance that.
+
+## Q16- When should you use classification over regression?
+More reading: Regression vs Classification (Math StackExchange)
+
+
+Classification produces discrete values and dataset to strict categories, while regression gives you continuous results that allow you to better distinguish differences between individual points. 
+
+You would use classification over regression if you wanted your results to reflect the belongingness of data points in your dataset to certain explicit categories (ex: If you wanted to know whether a name was male or female rather than just how correlated they were with male and female names.)
+
