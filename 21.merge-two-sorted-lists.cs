@@ -85,6 +85,7 @@ public class Solution21
         if(l1 == null) return l2;
         if(l2 == null) return l1;
 
+        // this is a trick to creat a non-null listnode
         ListNode head = new ListNode(1);
         ListNode node = head;
         while(l1 != null && l2 != null)
