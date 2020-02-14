@@ -17,11 +17,13 @@ public class Solution33
         if(start > end)
             return -1;
 
+        // middle: start + (end-start)/2
         int middle = start + (end - start)/2;
 
         if(nums[middle] == target)
             return middle;
 
+        // need to check whether this part contains reverse.
         bool hasReverse = nums[start] > nums[end];
         if(nums[middle] < target)
         {
@@ -35,6 +37,9 @@ public class Solution33
         }
         else
         {
+            // for binary search, usually devide the range into 
+            // start to middle - 1
+            // middle + 1 to end
             var res = BinarySearch(nums, start, middle - 1, target);
             if(hasReverse && res == -1)
             {
