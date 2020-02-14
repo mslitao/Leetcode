@@ -48,3 +48,4 @@ What is the difference between Likelihood and Probability?
 - The word likelihood has an adjective called like and adverb called likely.
 
 These are the differences between likelihood and probability.
+
