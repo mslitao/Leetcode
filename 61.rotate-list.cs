@@ -12,7 +12,7 @@ public class Solution61
         public int val;
         public ListNode next;
         public ListNode(int x) { val = x; 
-    }
+        }
     }    
     
     // the key in this problem is to make a circle linked list, then it's easier to find the head.

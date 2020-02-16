@@ -43,7 +43,6 @@ public class Solution19
         }
 
         late.next = late.next.next;
-
         return head;
     }
 }

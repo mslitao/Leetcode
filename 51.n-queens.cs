@@ -15,6 +15,7 @@ public class Solution51
         }
 
         IList<IList<string>> solutions = new List<IList<string>>();
+        
         BackTrackNQueens(current, step, n, solutions);
 
         return solutions;

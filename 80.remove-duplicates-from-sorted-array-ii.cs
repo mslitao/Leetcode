@@ -5,6 +5,7 @@ using System.Linq;
 public class Solution80 {
     public int RemoveDuplicates(int[] nums) {
         if(nums == null || nums.Length == 0) return 0;
+        
         int start = 0;
         int prev = nums[0];
         int cnt = 1;
