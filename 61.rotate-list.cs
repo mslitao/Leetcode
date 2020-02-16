@@ -1,10 +1,10 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Solution61 {
+public class Solution61 
+{
 
     //Definition for singly-linked list.
     public class ListNode 
@@ -15,6 +15,7 @@ public class Solution61 {
     }
     }    
     
+    // the key in this problem is to make a circle linked list, then it's easier to find the head.
     ListNode RotateRight(ListNode head, int k) {
         return null;
     }
@@ -32,6 +33,7 @@ public class Solution61 {
             tail = tail->next;
             len++;
         }
+        
         tail->next = head; // circle the link
 
         if(k %= len) 
