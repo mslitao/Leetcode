@@ -26,4 +26,29 @@ public class Solution122
 
         return Math.Max(buys[n-1], sells[n-1]);
     }
+
+    public int MaxProfit2(int[] prices) {
+        int n = prices.Length;
+        if(n < 2) return 0;
+
+        int profit =0;
+        int minPrice = int.MaxValue;
+        
+
+        for(int i =0; i< n; ++i)
+        {
+            int price = prices[i];
+            if(price < minPrice)
+            {
+                minPrice = price;
+            }
+            else
+            {
+                profit += (price - minPrice);
+                minPrice = price;
+            }
+        }
+
+        return profit;
+    }
 }
