@@ -12,4 +12,9 @@ public class Solution100
         public TreeNode right;
         public TreeNode(int x) { val = x; }
     }
+
+    public bool IsSameTree(TreeNode p, TreeNode q) {
+        return (p == null && q == null) ||
+                (p != null && q != null && p.val == q.val && IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right));
+    }
 }

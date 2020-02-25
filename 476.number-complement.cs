@@ -4,9 +4,9 @@ using System.Linq;
 
 public class Solution476 {
     public int FindComplement2(int num) {
-        int mask = int.MaxValue;
-        while (mask & num >0) mask <<= 1;
-        return ~mask & ~num;
+        int mask = 1;
+        while (mask < num) mask = (mask << 1) | 1;
+        return ~num & mask;
     }
 
     public List<int> ConvertFromInteger(int num)

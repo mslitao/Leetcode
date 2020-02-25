@@ -25,7 +25,8 @@ public class Solution198
             // either rob or skip at last one.
             dp2[i] = Math.Max(dp2[i-1], dp1[i-1]);
         }
-
+        
+        // Take the max at the last house.
         return Math.Max(dp2[len], dp1[len]);
     }
 }
