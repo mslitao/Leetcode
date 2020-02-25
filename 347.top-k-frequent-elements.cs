@@ -4,6 +4,9 @@ using System.Linq;
 
 public class Solution347
 {
+    // Use hashmap which is dictionary in C# to persist the number and frequence 
+    // Sort the hashmap by the value in a descending order
+    // Take the first top k element from the sorted hashmap.
     public IList<int> TopKFrequent(int[] nums, int k) 
     {
         Dictionary<int, int> numFreq = new Dictionary<int, int>();
