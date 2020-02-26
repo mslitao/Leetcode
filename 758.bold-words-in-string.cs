@@ -35,7 +35,7 @@ public class Solution758
         }
 
         StringBuilder sb = new StringBuilder();
-        int start = -1; int end = -1;
+        int start = -1; 
         for (int i = 0; i < S.Length; ++i)
         {
             if (datasets[i] == 1)
