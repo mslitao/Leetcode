@@ -53,6 +53,33 @@ class Solution0309
         
         return result == expected;
     }
+
+    public static int FindMax(List<int> numbers, int left, int right)
+    {
+        if(left == right)
+        {
+            return left;
+        }
+
+        if(right == left + 1)
+        {
+            return numbers[left] > numbers[right]? left: right;
+        }
+
+        int middle = left + (right - left)/2;
+        if(numbers[middle] > numbers[middle - 1] && numbers[middle] > numbers[middle + 1])
+        {
+            return middle;
+        }
+        else if(numbers[middle] > numbers[middle - 1] && numbers[middle] < numbers[middle + 1])
+        {
+            return FindMax(numbers, middle + 1, right);
+        }
+        else
+        {
+            return FindMax(numbers, left, middle -1);
+        }
+    }
     
     public static bool FindNumber(List<int> numbers, int target)
     {
