@@ -37,4 +37,10 @@ public class Solution98
 
         return true;
     }
+
+    /*
+    Use Stack + InOrder traverse to check. 
+    Only need to make sure the current value is great then previous value.
+    */
+
 }
