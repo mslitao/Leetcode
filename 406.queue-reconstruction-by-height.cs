@@ -9,7 +9,7 @@ public class Solution406 {
         if(cnt == 0) return people;
         
         var sortedPeople = (from p in people
-                           orderby p[0], p[1]
+                           orderby p[0] descending, p[1] ascending
                            select p).ToList();
 
         for(int i =0; i < cnt; ++i)
