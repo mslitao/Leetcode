@@ -5,6 +5,31 @@ using System.Text;
 
 public class Solution125
 {
+    public bool IsPalindrome2(string s) {
+        if(string.IsNullOrEmpty(s)) return true;
+
+        int start = 0; 
+        int end = s.Length -1;
+        s = s.ToLower();
+        while(start <= end)
+        {
+            while(start < end && !char.IsLetterOrDigit(s[start]))
+            {
+                start ++;
+            }
+
+            while(start < end && !char.IsLetterOrDigit(s[end]))
+            {
+                end --;
+            }
+
+            if(s[start++] != s[end--]) return false;
+            
+        }
+
+        return true;
+    }
+
     public bool IsPalindrome(string s) {
         if ( string.IsNullOrEmpty(s))
         {
