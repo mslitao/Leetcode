@@ -13,11 +13,12 @@ public class Solution282
         return results;
     }
 
-    public void helper(string num, int target, int diff, int current,  string expression, List<string> results)
+    public void helper(string num, int target, long diff, long current,  string expression, List<string> results)
     {
-        if(current == target)
+        if(string.IsNullOrEmpty(num))
         {
-            results.Add(expression);
+            if(current == target)
+                results.Add(expression);
             return;
         }
         
@@ -27,7 +28,7 @@ public class Solution282
             if(cur.Length > 1 && cur[0] == '0') return;
             string next = num.Substring(i);
 
-            int curNum = int.Parse(cur);
+            long curNum = long.Parse(cur);
             if(expression.Length > 0)
             {
                 helper(next, target, curNum, current + curNum, expression + "+" + cur, results);
