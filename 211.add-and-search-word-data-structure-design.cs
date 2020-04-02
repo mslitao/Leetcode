@@ -48,7 +48,40 @@ public class WordDictionary
     
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public bool Search(string word) {
-        return SearchBFS(word);
+        //return SearchBFS(word);
+
+        return SearchDFS(word, 0, this.trie);
+    }
+
+    public bool SearchDFS(string word, int idx,  TrieNode node)
+    {
+        if(idx == word.Length)
+        {
+            return node != null && node.IsWord;
+        }
+
+        if(word[idx] == '.')
+        {
+            bool found = false;
+            foreach(var next in node.Next)
+            {
+                if(next != null && SearchDFS(word, idx +1 , next))
+                {
+                    found = true;
+                    break;
+                }
+            }
+            return found;
+        }
+        else
+        {
+            var next = node.Next[word[idx] - 'a'];
+            if(next != null && SearchDFS(word, idx +1 , next))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 
     public bool SearchBFS(string word) {
