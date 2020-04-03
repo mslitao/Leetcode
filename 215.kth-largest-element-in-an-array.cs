@@ -17,7 +17,7 @@ public class Solution215
         int right = nums.Length - 1;
         while(true)
         {
-            int pos = Partition(nums, left, right;
+            int pos = Partition(nums, left, right);
             if(pos == k - 1) return nums[pos];
             else if (pos > k -1)  right = pos -1;
             else left = pos + 1;
