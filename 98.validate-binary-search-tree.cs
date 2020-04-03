@@ -12,6 +12,32 @@ public class Solution98
         public TreeNode right;
         public TreeNode(int x) { val = x; }
     }
+    public bool IsValidBST_2ndTry(TreeNode root) 
+    {
+        if(root == null)
+        {
+            return true;
+        }
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode node = root;
+        TreeNode lastNode = null;
+        while(stack.Any() || node != null)
+        {
+            while(node != null)
+            {
+                stack.Push(node);
+                node = node.left;
+            }
+
+            node = stack.Pop();
+            if(lastNode != null && node.val <= lastNode.val) return false;
+            lastNode = node;
+            node = node.right;
+        }
+
+        return true;
+    }
 
     public bool IsValidBST(TreeNode root) 
     {
