@@ -14,10 +14,10 @@ public class Solution415
         for(int i =0; i < m || i < n; ++ i)
         {
             int num = carry + (i < m?  num1[m - i -1] -'0': 0) + (i < n?  num2[n - i -1] -'0': 0);
-            carry = num / 2;
-            results.Add( (char)('0' + num%2));
+            carry = num / 10;
+            results.Add( (char)('0' + num%10));
         }
-        
+
         if(carry == 1)
         {
             results.Add('1');
