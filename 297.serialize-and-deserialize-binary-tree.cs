@@ -50,24 +50,9 @@ public class Codec {
         TreeNode node = new TreeNode(int.Parse(values[i]));
         i++;
         
-        if(i < values.Count)
-        {
-            node.left = PreOrderTraverse(values, ref i);
-        }
-        else
-        {
-            node.left = null;
-        }
+        node.left = PreOrderTraverse(values, ref i);
+        node.right = PreOrderTraverse(values, ref i);
         
-        if(i < values.Count)
-        {
-            node.right = PreOrderTraverse(values, ref i);
-        }
-        else
-        {
-            node.right = null;
-        }
-
         return node;
     }
 

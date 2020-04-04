@@ -49,6 +49,6 @@ public class Solution162
             else
                 right = middle; 
         }
-        return BPFindPeakElement(nums, 0, nums.Length -1 );
+        return right;
     }
 }
