@@ -6,6 +6,9 @@ using System.Text;
 
 public class Solution42 
 {
+    // Key: Use stack to persist the index if not being closed
+    // Close if found a higher boundry. 
+    // Be careful on corner cases.
     public int Trap(int[] height) {
         int result = 0;
         Stack<int> stack = new Stack<int>();
