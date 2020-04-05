@@ -21,23 +21,14 @@ public class Solution825
             if(ageMap[i] == 0)
                 continue;
             
-            for(int j = i - 1; j > (i*0.5 + 7); --j)
+            for(int j = i; j > (i*0.5 + 7); --j)
             {
                 if(ageMap[j] == 0)
                     continue;
-                //Console.WriteLine(string.Format("{0}-{1}", i, j));
-                result += ageMap[j]*ageMap[i];
-            }
-            if(ageMap[i] > 1 && i > (i*0.5 + 7))
-            {
                 
-                //Console.WriteLine(i);
-                int tmp = 1;
-                for(int k = 1; k <= ageMap[i]; ++k)
-                    tmp = tmp* k;
-                result += tmp;
+                if(j == i) result += ageMap[i] * (ageMap[i] - 1);
+                else result += ageMap[j]*ageMap[i];
             }
-            
         }
 
         return result;
