@@ -24,8 +24,10 @@ public class Solution559
     public int MaxDepth(Node root) {
         if(root == null) return 0;
         int depth = 0;
+        
         Queue<Node> queue = new Queue<Node>();
         queue.Enqueue(root);
+
         while(queue.Any())
         {
             depth ++;
