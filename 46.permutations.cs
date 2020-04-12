@@ -35,4 +35,33 @@ public class Solution46
             current.RemoveAt(idx);
         }
     }
+
+    public IList<IList<int>> Permute2(int[] nums) {
+        IList<IList<int>> results = new List<IList<int>>();
+        IList<int> current = new List<int>();
+        HashSet<int> visited = new HashSet<int>();
+        DFSPermute(nums.ToList(), 0, visited, current, results);
+        
+        return results;
+    }
+
+    public void DFSPermute(List<int> nums, int level,  HashSet<int> visited, IList<int> current, IList<IList<int>> results)
+    {
+        if(level == nums.Count )
+        {
+            var result = new List<int>(current);
+            results.Add(result);
+            return;
+        }
+
+        foreach(var num in nums)
+        {
+            if(visited.Contains(num)) continue;
+            visited.Add(num);
+            current.Add(num);
+            DFSPermute(nums, level + 1, visited, current, results);
+            visited.Remove(num);
+            current.Remove(num);
+        }
+    }
 }
