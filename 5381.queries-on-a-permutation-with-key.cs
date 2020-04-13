@@ -17,14 +17,16 @@ public class Solution5381
         for(int i = 0; i < queries.Length; ++i)
         {
             var q = queries[i];
+            var idx = tmp.IndexOf(q);
+
+            var num = tmp[idx];
             
-            var num = tmp[q];
             results[i] = num;
 
-            tmp.RemoveAt(q);
+            tmp.RemoveAt(idx);
             tmp.Insert(0, num);
         }
         
-        return resuts;
+        return results;
     }
 }
