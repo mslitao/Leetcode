@@ -25,33 +25,40 @@ public class Solution30
             }
         }
 
-        for(int i = 0; i < s.Length; ++i)
+        for(int i = 0; i < k; ++i)
         {
-            int cnt = 0;
-            Dictionary<string, int> map = new Dictionary<string, int>();
-            for(int j = 0; j < n; ++j)
-            {
-                if(i + j*k >= s.Length || i + j*k + k > s.Length) break;
-
-                var str = s.Substring(i + j * k, k);
-                if(!wordMap.ContainsKey(str)) break;
-                if(!map.ContainsKey(str))
-                {
-                    map.Add(str, 1);
-                }
-                else
-                {
-                    map[str] ++;
-                }
-
-                if(map[str] > wordMap[str]) break;
-
-                cnt ++;
-            }
+            int start = i;
+            int end = i;
             
-            if(cnt == n) 
+            int matched = 0;
+            Dictionary<string, int> map = new Dictionary<string, int>();
+            while(end + k <= s.Length)
             {
-                results.Add(i);
+                var str = s.Substring(end, k);
+                if(!wordMap.ContainsKey(str)) 
+                {
+                    map.Clear();
+                    start = end + k;
+                    end = start;
+                    matched = 0;
+                    continue;
+                }
+                
+                if(!map.ContainsKey(str)) map.Add(str, 1);
+                else map[str] ++;
+                if(map[str] <= wordMap[str]) matched ++;
+
+                if(((end - start) / k + 1) > n)
+                {
+                    str =s.Substring(start, k); 
+                    map[str] --;
+                    start += k;
+
+                    if(map[str] < wordMap[str]) matched --;
+                }
+
+                if(matched == n) results.Add(start);
+                end += k;
             }
         }
 
