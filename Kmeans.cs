@@ -22,9 +22,19 @@ class SolutionKmeans
         
         Kmeans kc = new Kmeans();
         kc.KmeansCluster(n, data);
+        Console.WriteLine("Here's the cluster centers");
         foreach(var c in kc.clusterCenter)
         {
-            Console.WriteLine(string.Join("-", c));
+            Console.WriteLine(string.Join(",", c));
+        }
+        
+        Console.WriteLine("Here's the cluster assignment.");
+        for(int i = 0; i < data.Count; ++i)
+        {
+            Console.WriteLine(string.Format("{0},{1} - {2}", 
+                                            data[i][0],
+                                            data[i][1],
+                                            kc.assignedCluster[i]));
         }
     }
     
@@ -76,24 +86,29 @@ public class Kmeans
         for(int idx = 0; idx < data.Count; ++idx)
         {
             //Skip if it's already in the cluster.
-            if(this.current.Contains(idx)) continue;
+            if(map.ContainsKey(idx)) continue;
             
             int centerIdx = -1;
+            int centerVal = -1;
             float minDis = float.MaxValue;
-            foreach(var c in this.current)
+            int i = 0;
+            foreach(var cluster in map)
             {
-                var dis = ComputeDistance(data[idx], data[c]);
+                var dis = ComputeDistance(data[idx], data[cluster.Key]);
                 if(dis < minDis) 
                 {
-                    centerIdx = c;
+                    centerIdx = i;
+                    centerVal = cluster.Key;
+                    minDis = dis;
                 }
+                i++;
             }
             
             this.assignedCluster[idx] = centerIdx;
             
-            var tmp = map[centerIdx];
+            var tmp = map[centerVal];
             tmp.Add(idx);
-            map[centerIdx] = tmp;
+            map[centerVal] = tmp;
         }
         
         int cnt = 0;
@@ -112,6 +127,7 @@ public class Kmeans
                 if(sumVal < minDis) 
                 {
                     center = p1;
+                    minDis = sumVal;
                 }
             }
             
@@ -129,7 +145,7 @@ public class Kmeans
             distance += (p1[i] - p2[i]) *(p1[i] - p2[i]);
         }
         
-        return distance;
+        return (float)Math.Sqrt(distance);
     }
     
     public void InitClusters(int n, List<List<float>> data)
