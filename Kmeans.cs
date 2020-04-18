@@ -42,7 +42,6 @@ class SolutionKmeans
 }
 public class Kmeans
 {
-    
     public List<int> assignedCluster = null;
     public List<List<float>> clusterCenter = null;
     public List<int> current = null;
@@ -112,29 +111,42 @@ public class Kmeans
         }
         
         int cnt = 0;
+        int dims = data[0].Count;
         foreach(var cluster in map)
         {
             int center = -1;
             float minDis = float.MaxValue;
-            foreach(var p1 in cluster.Value)
+            List<float> centerPoint = new List<float>(new float[dims]);
+            
+            foreach(var p in cluster.Value)
             {
-                float sumVal = 0.0f;
-                foreach(var p2 in cluster.Value)
+                var dp = data[p];
+                for(int dim = 0; dim < dims; ++dim)
                 {
-                    sumVal += ComputeDistance(data[p1], data[p2]);
-                }
-                
-                if(sumVal < minDis) 
-                {
-                    center = p1;
-                    minDis = sumVal;
+                    centerPoint[dim] += dp[dim];
                 }
             }
+            
+            for(int dim = 0; dim < dims; ++dim)
+            {
+                centerPoint[dim] = centerPoint[dim] / cluster.Value.Count;
+            }
+            
+            
+            foreach(var p in cluster.Value)
+            {
+                var tmpDis = ComputeDistance(data[p], centerPoint);
+                if(tmpDis <= minDis)
+                {
+                    minDis = tmpDis;
+                    center = p;
+                }
+            }
+            
             
             this.current[cnt ++] = center;
         }
     }
-    
     
     
     public float ComputeDistance(List<float> p1, List<float> p2)
