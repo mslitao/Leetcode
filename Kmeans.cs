@@ -19,6 +19,7 @@ class SolutionKmeans
         data.Add(new List<float>{4f,2f});
         data.Add(new List<float>{4f,4f});
         data.Add(new List<float>{4f,0f});
+        data.Add(new List<float>{5f,6f});
         
         Kmeans kc = new Kmeans();
         kc.KmeansCluster(n, data);
@@ -132,7 +133,6 @@ public class Kmeans
                 centerPoint[dim] = centerPoint[dim] / cluster.Value.Count;
             }
             
-            
             foreach(var p in cluster.Value)
             {
                 var tmpDis = ComputeDistance(data[p], centerPoint);
@@ -142,8 +142,7 @@ public class Kmeans
                     center = p;
                 }
             }
-            
-            
+
             this.current[cnt ++] = center;
         }
     }
