@@ -91,15 +91,25 @@ class SolutionMock0420
             duplicates.Add(dup);
             slopes.Add(slp);
         }
+        
+        for(int i = 0; i < m; i ++)
+        {
+            foreach(var slp in slopes[i])
+            {
+                var tmp = map[slp];
+                foreach(var dup in duplicates[i])
+                {
+                    tmp.Add(dup);
+                }
+                map[slp] = tmp;
+            }
+        }
+
         foreach(var item in map)
         {
             Console.WriteLine(string.Format("{0}-{1},{2}", item.Key.Item1, item.Key.Item2, item.Value.Count));
         }
 
-        for(int i = 0; i < m; i ++)
-        {
-            
-        }
         return map.Values.Select(x=>x.Count).Max();
     }
 }
