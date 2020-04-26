@@ -181,5 +181,57 @@ class SolutionMock0425
         }
         return reach >= size-1;
     }
+
+    public IList<string> BraceExpansionII(string expression) {
+        var stack = new Stack<object>();
+        
+        var i = 0;
+        while (i < expression.Length) {
+            var startWord = i;
+            while (startWord < expression.Length && char.IsLetter(expression[startWord])) {
+                startWord++;
+            }
+            
+            if (char.IsLetter(expression[i])) {
+                var s = expression.Substring(i, startWord - i);
+                var newSet = new HashSet<string> { s };
+                ReduceStackElements(stack, newSet, (char c) => c == ',' || c == '{'); // perform concat operations
+                i = startWord;
+            }
+            else if (expression[i] == '}') {
+                ReduceStackElements(stack, null, (char c) => c == '{'); // perform unions until '{' appears
+                var lastSet = stack.Pop();
+                stack.Pop();          // pop the '{'
+                stack.Push(lastSet);  // push set again
+                ReduceStackElements(stack, null, (char c) => c == ',' || c == '{'); // perform concat operations
+                i++;
+            }
+            else { // case for '{' and ','
+                stack.Push(expression[i++]);
+            }
+        }
+        
+        ReduceStackElements(stack, null, (char c) => c == '-'); // perform pending unions
+        return ((HashSet<string>)stack.Peek()).OrderBy(s => s).ToList();
+    }
     
+    public void ReduceStackElements(Stack<object> stack, HashSet<string> currentSet, Predicate<char> isStopCharacter) {
+        while (stack.Count > 0 && (stack.Peek() is HashSet<string> || !isStopCharacter((char)stack.Peek()))) {
+            if (stack.Peek() is HashSet<string>) {
+                var lastSet = (HashSet<string>)stack.Pop();
+                currentSet = currentSet is null ?
+                    lastSet :
+                    lastSet.SelectMany(l => currentSet.Select(r => l + r)).ToHashSet();
+            }
+            else {
+                var currentChar = (char)stack.Pop();
+                if (currentChar == ',') {
+                    currentSet = ((HashSet<string>)stack.Pop()).Union(currentSet).ToHashSet();
+                }
+            }
+        }
+        
+        stack.Push(currentSet);
+    }
 }
+
