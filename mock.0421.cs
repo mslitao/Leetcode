@@ -124,6 +124,7 @@ class SolutionMock0421
                     while(len < maxWidth)
                     {
                         space[k++] ++;
+                        if(k == current.Count) k = 1;
                         len ++;
                     }
 
@@ -144,7 +145,7 @@ class SolutionMock0421
             else
             {
                 current.Add(word);
-                space.Add(word.Length);
+                space.Add(1);
                 len = len + 1 + word.Length;
             }
             
