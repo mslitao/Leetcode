@@ -87,4 +87,45 @@ public class Mock0428
         visited.Remove(Tuple.Create(i, j));
         return false;
     }
+
+    public int PivotIndex(int[] nums) {
+        if(nums == null || nums.Length <= 2) return -1;
+        int[] sumL = new int[nums.Length];
+        int[] sumR = new int[nums.Length];
+
+        for(int i = 0; i < nums.Length; ++i)
+        {
+            sumL[i] = i == 0? nums[i]: sumL[i -1] + nums[i];
+            sumR[nums.Length - i - 1] = i == 0? nums[nums.Length - 1] :  nums[nums.Length - i- 1] + sumR[nums.Length - i];
+        }
+
+        if(sumR[0] == 0) return 0;
+        for(int i = 1; i < nums.Length -1; ++i)
+        {
+            if(sumL[i -1] == sumR[i+ 1]) return i;
+        }
+        if(sumL[nums.Length -1] == 0) return nums.Length -1;
+        
+        return -1;
+    }
+
+    public class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode(int val=0, ListNode next=null) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    /** @param head The linked list's head.
+        Note that the head is guaranteed to be not null, so it contains at least one node. */
+    public Mock0428(ListNode head) {
+        
+    }
+    
+    /** Returns a random node's value. */
+    public int GetRandom() {
+        
+    }
 }
