@@ -118,14 +118,25 @@ public class Mock0428
         }
     }
 
+    
     /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
     public Mock0428(ListNode head) {
-        
+        this.Head = head;
     }
+    ListNode Head = null;
     
-    /** Returns a random node's value. */
+    /* Returns a random node's value. */
     public int GetRandom() {
-        
+        int res = this.Head.val;
+        int i = 2;
+        ListNode cur = this.Head.next;
+        while (cur != null) {
+            int j = new Random().Next() % i;
+            if (j == 0) res = cur.val;
+            ++i;
+            cur = cur.next;
+        }
+        return res;
     }
 }
