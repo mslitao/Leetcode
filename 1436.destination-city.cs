@@ -21,5 +21,12 @@ public class Solution1436
 
             map[path[0]] ++;
         }
+
+        foreach(var item in map)
+        {
+            if(item.Value == 0) return item.Key;
+        }
+
+        return string.Empty;
     }
 }
