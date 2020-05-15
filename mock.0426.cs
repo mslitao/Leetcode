@@ -208,6 +208,7 @@ class SolutionMock0426
             candies[stack.Pop()] =candy ++;
         }
 
+        Console.WriteLine(string.Join("-", candies));
         for(int i = ratings.Length -2; i >=0; i --)
         {
             if(ratings[i] > ratings[i + 1] && candies[i] < candies[i + 1])
