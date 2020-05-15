@@ -40,8 +40,8 @@ public class Solution1438
                 start ++;
             }
             
-            Console.WriteLine(String.Format("{0}-{1}", maxDequeue.First(),minDequeue.First()));
-            Console.WriteLine(String.Format("{0}|{1}", start,end));
+            //Console.WriteLine(String.Format("{0}-{1}", maxDequeue.First(),minDequeue.First()));
+            //Console.WriteLine(String.Format("{0}|{1}", start,end));
             maxLength = Math.Max(maxLength, end - start + 1);
 
             end ++;
