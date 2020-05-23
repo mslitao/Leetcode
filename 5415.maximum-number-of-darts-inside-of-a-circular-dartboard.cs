@@ -32,7 +32,7 @@ public class Solution5415
 
             for(int i =0; i < N; ++i)
             {
-                if()
+                //
             }
         }
 
