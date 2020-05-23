@@ -30,7 +30,10 @@ public class Solution5415
             var tmp = Queue.Dequeue();
             res = tmp.Count;
 
-            for()
+            for(int i =0; i < N; ++i)
+            {
+                if()
+            }
         }
 
         return res;

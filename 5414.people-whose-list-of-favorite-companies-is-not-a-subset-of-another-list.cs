@@ -56,7 +56,7 @@ public class Solution5414
                 left.Add(i);
             }
         }
-        return results;
+        return left;
 
 
     }
