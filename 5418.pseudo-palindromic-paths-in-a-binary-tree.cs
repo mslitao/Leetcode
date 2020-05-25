@@ -8,6 +8,9 @@ public class Solution5418
     public int PseudoPalindromicPaths (TreeNode root) {
         if(root == null) return 0;
         int[] map = new int[10];
+        DFS(root, map);
+
+        return this.result;
     }
 
     // DFS
@@ -24,5 +27,9 @@ public class Solution5418
 
             if(singleCnt <=1) this.result ++;
         }
+
+        if(node.left != null) DFS(node.left, current);
+        if(node.right!= null) DFS(node.right, current);
+        current[node.val] --;
     }
 }
