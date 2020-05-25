@@ -11,34 +11,26 @@ public class Solution5417
         Dictionary<char, int> map =new Dictionary<char, int>();
         int end = 0;
         int len = 0;
+        int sum = 0;
         while(end < s.Length)
         {
-            if(!csets.Contains(s[end]))
+            if(csets.Contains(s[end]))
             {
-                start++;
-                end++;
-                map.Clear();
-                continue;
+                sum++;
             }
-
-            if(!map.ContainsKey(s[end]))
-                map.Add(s[end], 1);
-            else
-                map[s[end]] ++;
 
             while(end - start  + 1 > k)
             {
-                map[s[start]] --;
-                if(map[s[start]] == 0) map.Remove(s[start]);
-
+                if(csets.Contains(s[start]))
+                {
+                    sum--;
+                }
                 start ++;
             }
 
-            if(end - start + 1 == k)
+            if(end - start + 1 == k && sum > len)
             {
-                if(map.Count > len) len = map.Count;
-
-                if(len == 5) return 5;
+                len = sum;
             }
 
             end ++;
