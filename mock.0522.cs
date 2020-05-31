@@ -5,7 +5,7 @@ using System.Linq;
 public class SolutionMock0522 {
     public int BulbSwitch(int n) {
         return (int)Math.Sqrt(n);
-        
+        /*
         bool[] bulbs = new bool[n];
         Array.Fill(bulbs, true);
 
@@ -23,6 +23,6 @@ public class SolutionMock0522 {
             if(bulbs[i]) result ++;
         }
 
-        return result;
+        return result;*/
     }
 }
