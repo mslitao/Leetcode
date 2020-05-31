@@ -40,7 +40,7 @@ public class SolutionMock052502
     private const int MOD = 1000000007;
 
     public int KnightDialer(int N) {
-         int[,] dp = new int[2, 10];        
+        int[,] dp = new int[2, 10];        
         int sum = 0;
         
         for (int i = 0; i < N; i++) {
